@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLWebAPI", "GraphQLWebAPI\GraphQLWebAPI.csproj", "{8FD1890C-34EF-40AF-9313-B2AEA0799186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLWebAPI", "GraphQLWebAPI\GraphQLWebAPI.csproj", "{42860DFF-6425-4F4D-A847-2823F73424F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8FD1890C-34EF-40AF-9313-B2AEA0799186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FD1890C-34EF-40AF-9313-B2AEA0799186}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FD1890C-34EF-40AF-9313-B2AEA0799186}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FD1890C-34EF-40AF-9313-B2AEA0799186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42860DFF-6425-4F4D-A847-2823F73424F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42860DFF-6425-4F4D-A847-2823F73424F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42860DFF-6425-4F4D-A847-2823F73424F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42860DFF-6425-4F4D-A847-2823F73424F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C9FA2E19-24E0-4573-95C7-ED0C621DE8DE}
+		SolutionGuid = {D688727D-55F6-423C-B157-6ADB373C8E72}
 	EndGlobalSection
 EndGlobal
