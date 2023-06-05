@@ -6,8 +6,8 @@ namespace GraphQLWebAPI.Services
     public class ProductService : IProduct
     {
         private List<Product> products = new List<Product>(){
-                new Product() {Id = 0, Name = "Coffee", Price = 10},
-                new Product() {Id = 0, Name = "Tea", Price = 15},
+                new Product() {Id = 1, Name = "Coffee", Price = 10},
+                new Product() {Id = 2, Name = "Tea", Price = 15},
             };
 
         public Product AddProduct(Product product)

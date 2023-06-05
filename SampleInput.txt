@@ -1,0 +1,54 @@
+query queryAll{
+  products{
+    id
+    name
+		price
+  }
+}
+
+-- Add
+mutation Add($product: ProductInputType){
+	createProduct(product: $product){
+    id
+    name
+    price
+  }
+}
+
+--Sample Input
+{
+  "product": {
+    "id": 2,
+    "name": "Rasam",
+    "price": 20
+  }
+}
+
+-- Update
+mutation Update($product: ProductInputType, $id: Int){
+	updateProduct(product: $product, id: $id){
+    id
+    name
+    price
+  }
+}
+
+--Sample Input
+{
+  "id": 3,
+  "product": {
+    "id": 3,
+    "name": "Rasam1",
+    "price": 25
+  }
+}
+
+-- Delete
+mutation Delete($id: Int){
+	deleteProduct(id: $id)
+}
+
+--Sample Input
+{
+  "id": 2
+}
