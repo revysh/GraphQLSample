@@ -1,9 +1,9 @@
 ﻿using GraphQL.Types;
 using GraphQLWebAPI.Models;
 
-namespace GraphQLWebAPI.Type
+namespace GraphQLWebAPI.GraphQLFW.Type
 {
-    public class ProductType:ObjectGraphType<Product>
+    public class ProductType : ObjectGraphType<Product>
     {
         public ProductType()
         {
