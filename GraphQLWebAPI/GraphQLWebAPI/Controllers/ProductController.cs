@@ -1,9 +1,11 @@
 ﻿using GraphQL;
+using GraphQL.Query.Builder;
 using GraphQL.Types;
 using GraphQLWebAPI.Interfaces;
 using GraphQLWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Security.Cryptography;
 
 namespace GraphQLWebAPI.Controllers
 {
@@ -25,16 +27,17 @@ namespace GraphQLWebAPI.Controllers
         [HttpGet]
         public void Get()
         {
-            GraphQLRequest graphQlRequest = new GraphQLRequest()
-            {
-                Query = @"query{products{id name}}"
-            };
+            IQuery<Product> queryBuilder = new Query<Product>("products")
+                .AddField(f => f.Id)
+                .AddField(f => f.Name);
+
+            string query = $"query{{{queryBuilder.Build().ToLower()}}}";
+
 
             ExecutionOptions executionOptions = new ExecutionOptions()
             {
                 Schema = _schema,
-                Query = graphQlRequest.Query,
-                //Inputs = graphQlRequest.Inputs
+                Query = query
             };
 
             ExecutionResult executionResult = _documentExecuter.ExecuteAsync(executionOptions).Result;
