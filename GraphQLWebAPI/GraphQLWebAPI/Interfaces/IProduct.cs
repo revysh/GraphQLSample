@@ -4,7 +4,7 @@ namespace GraphQLWebAPI.Interfaces
 {
     public interface IProduct
     {
-        List<Product> GetAllProducts();
+        List<Product> GetAllProducts(int pageNumber, int pageSize);
 
         Product AddProduct(Product product);
 

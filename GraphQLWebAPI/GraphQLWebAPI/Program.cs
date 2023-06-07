@@ -1,4 +1,6 @@
 using GraphiQl;
+using GraphQL;
+using GraphQL.NewtonsoftJson;
 using GraphQL.Server;
 using GraphQL.Types;
 using GraphQLWebAPI.GraphQLFW.Mutation;
@@ -7,6 +9,7 @@ using GraphQLWebAPI.GraphQLFW.Schema;
 using GraphQLWebAPI.GraphQLFW.Type;
 using GraphQLWebAPI.Interfaces;
 using GraphQLWebAPI.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,9 +19,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IProduct, ProductService>();
 builder.Services.AddSingleton<ProductType>();
-builder.Services.AddSingleton<ProductQuery>();
+//builder.Services.AddSingleton<ProductQuery>();
 builder.Services.AddSingleton<ProductMutation>();
-builder.Services.AddSingleton<GraphQL.Types.ISchema, ProductSchema>();
+//builder.Services.AddSingleton<GraphQL.Types.ISchema, ProductSchema>();
+
+builder.Services
+        .AddSingleton<IDocumentExecuter, DocumentExecuter>()
+        .AddSingleton<IDocumentWriter, DocumentWriter>()
+        .AddSingleton<ISchema, ProductSchema>()
+        .AddSingleton<ProductQuery>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -39,7 +48,7 @@ if (app.Environment.IsDevelopment())
 
 //app.UseAuthorization();
 
-//app.MapControllers();
-app.UseGraphiQl("/graphql");
-app.UseGraphQL<ISchema>();
+app.MapControllers();
+//app.UseGraphiQl("/graphql");
+//app.UseGraphQL<ISchema>();
 app.Run();

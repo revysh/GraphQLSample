@@ -9,6 +9,16 @@
     }
   },
   "profiles": {
+    "GraphQLController": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "WeatherForecast",
+      "applicationUrl": "http://localhost:5220",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "GraphQLWebAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,

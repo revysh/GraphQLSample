@@ -21,9 +21,9 @@ namespace GraphQLWebAPI.Services
             products.RemoveAt(id);
         }
 
-        public List<Product> GetAllProducts()
+        public List<Product> GetAllProducts(int pageNumber, int pageSize)
         {
-            return products;
+            return products.ToList().Take(pageSize).ToList();
         }
 
         public Product GetProductById(int id)
