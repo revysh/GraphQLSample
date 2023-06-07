@@ -5,7 +5,7 @@ namespace GraphQLWebAPI.Models
 {
     public sealed class GraphQLRequest
     {
-        public string OperationName { get; set; }
+        //public string OperationName { get; set; }
         public string Query { get; set; }
 
         //[JsonConverter(typeof(ObjectDictionaryConverter))]

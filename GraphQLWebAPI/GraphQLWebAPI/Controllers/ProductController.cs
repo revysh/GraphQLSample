@@ -11,20 +11,23 @@ namespace GraphQLWebAPI.Controllers
     [Route("[controller]")]
     public class ProductController : Controller
     {
-        private readonly IProduct _productService;
         private readonly ILogger<WeatherForecastController> _logger;
         private ISchema _schema;
         private IDocumentWriter _documentWriter;
         private IDocumentExecuter _documentExecuter;
 
-        public ProductController(IProduct productService) => this._productService = productService;
+        public ProductController(ISchema schema, IDocumentWriter documentWriter, IDocumentExecuter documentExecuter)
+        {
+            _schema = schema;
+            _documentWriter = documentWriter;
+            _documentExecuter = documentExecuter;
+        }
 
         [HttpGet]
         public void Get()
         {
             GraphQLRequest graphQlRequest = new GraphQLRequest()
             {
-                OperationName = "123",
                 Query = @"query{products{id name}}"
             };
 
@@ -41,30 +44,6 @@ namespace GraphQLWebAPI.Controllers
             HttpContext.Response.StatusCode = executionResult.Errors?.Any() == true ? (int)HttpStatusCode.BadRequest : (int)HttpStatusCode.OK;
 
             _documentWriter.WriteAsync(HttpContext.Response.Body, executionResult);
-        }
-
-        [HttpGet("{id}")]
-        public Product Get(int id)
-        {
-            return _productService.GetProductById(id);
-        }
-
-        [HttpPost]
-        public Product Post(Product product)
-        {
-            return _productService.AddProduct(product);
-        }
-
-        [HttpPut("{id}")]
-        public Product Put(int id, Product product)
-        {
-            return _productService.UpdateProduct(id, product);
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            _productService.DeleteProduct(id);
         }
     }
 }
