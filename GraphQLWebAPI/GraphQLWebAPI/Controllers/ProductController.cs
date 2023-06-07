@@ -11,7 +11,6 @@ namespace GraphQLWebAPI.Controllers
     [Route("[controller]")]
     public class ProductController : Controller
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private ISchema _schema;
         private IDocumentWriter _documentWriter;
         private IDocumentExecuter _documentExecuter;
