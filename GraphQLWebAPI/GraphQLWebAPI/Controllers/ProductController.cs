@@ -1,4 +1,5 @@
 ﻿using GraphQL;
+using GraphQL.NewtonsoftJson;
 using GraphQL.Query.Builder;
 using GraphQL.Types;
 using GraphQLWebAPI.Interfaces;
@@ -14,13 +15,11 @@ namespace GraphQLWebAPI.Controllers
     public class ProductController : Controller
     {
         private ISchema _schema;
-        private IDocumentWriter _documentWriter;
         private IDocumentExecuter _documentExecuter;
 
-        public ProductController(ISchema schema, IDocumentWriter documentWriter, IDocumentExecuter documentExecuter)
+        public ProductController(ISchema schema, IDocumentExecuter documentExecuter)
         {
             _schema = schema;
-            _documentWriter = documentWriter;
             _documentExecuter = documentExecuter;
         }
 
@@ -44,8 +43,7 @@ namespace GraphQLWebAPI.Controllers
 
             HttpContext.Response.ContentType = "application/json";
             HttpContext.Response.StatusCode = executionResult.Errors?.Any() == true ? (int)HttpStatusCode.BadRequest : (int)HttpStatusCode.OK;
-
-            _documentWriter.WriteAsync(HttpContext.Response.Body, executionResult);
+            var responseJson = new GraphQL.NewtonsoftJson.GraphQLSerializer().Serialize(executionResult);
         }
     }
 }

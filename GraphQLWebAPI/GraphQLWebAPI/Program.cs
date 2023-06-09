@@ -1,7 +1,5 @@
 using GraphiQl;
 using GraphQL;
-using GraphQL.NewtonsoftJson;
-using GraphQL.Server;
 using GraphQL.Types;
 using GraphQLWebAPI.GraphQLFW.Mutation;
 using GraphQLWebAPI.GraphQLFW.Query;
@@ -25,7 +23,6 @@ builder.Services.AddSingleton<ProductMutation>();
 
 builder.Services
         .AddSingleton<IDocumentExecuter, DocumentExecuter>()
-        .AddSingleton<IDocumentWriter, DocumentWriter>()
         .AddSingleton<ISchema, ProductSchema>()
         .AddSingleton<ProductQuery>();
 
@@ -33,9 +30,9 @@ builder.Services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddGraphQL(options => {
-    options.EnableMetrics = true;
-}).AddSystemTextJson();
+//builder.Services.AddGraphQL(options => {
+//    options.EnableMetrics = true;
+//}).AddSystemTextJson();
 
 var app = builder.Build();
 

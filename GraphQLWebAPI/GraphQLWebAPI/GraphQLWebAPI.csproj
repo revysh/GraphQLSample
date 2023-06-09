@@ -8,8 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="graphiql" Version="2.0.0" />
+    <PackageReference Include="GraphQL" Version="7.4.1" />
+    <PackageReference Include="GraphQL.NewtonsoftJson" Version="7.4.1" />
     <PackageReference Include="GraphQL.Query.Builder" Version="2.0.1" />
-    <PackageReference Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="5.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
